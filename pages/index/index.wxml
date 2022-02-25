@@ -1,0 +1,40 @@
+<view class="background">
+  <view class="nav" style="height:{{navheight}}px;margin-top:{{topstatus}}px">安全帽检测后台管理系统</view>
+  <view class="contain">
+    <view class="image">
+    <image src="https://z3.ax1x.com/2021/11/11/Iwe4n1.png" style="width:100%"></image>
+    </view>
+    <view class="containTitle">安全帽检测系统 </view>
+  </view>
+  <view class="buttons">
+    <!-- 管理员 -->
+    <view class="manageOne" wx:if="{{IsManage}}">
+      <view
+        class="button inforButton"
+        bindtap="ToNavigatorSelect"
+        data-index="1"
+      >违规信息
+      </view>
+      <view
+        class="button manageButton"
+        bindtap="ToNavigatorSelect"
+        data-index="2"
+      >人脸管理页
+      </view>
+    </view>
+    <!-- 用户  -->
+    <view class="userOne" wx:if="{{IsUser}}">
+      <view
+        class="button oneselfSelect"
+        bindtap="ToNavigatorSelect"
+        data-index="3"
+      >个人信息采集
+      </view>
+    </view>
+    <!-- 立即登录 -->
+    <view class="other" wx:if="{{IsOther}}">
+      <view class="button register" bindtap="clickRegister">立即登录</view>
+    </view>
+  </view>
+</view>
+

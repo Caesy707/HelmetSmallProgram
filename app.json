@@ -1,0 +1,21 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/list/list",
+        "pages/detail/detail",
+        "pages/InforManage/InforManage",
+        "pages/faceManage/faceManage",
+        "pages/faceManageDetail/faceManageDetail"
+
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,77 @@
+<!--pages/faceManageDetail/faceManageDetail.wxml-->
+<view>
+  <view class="nav"  style="height:{{navheight}}px;margin-top:{{topstatus}}px">
+    <view class="iconfont icon-dayu" bindtap="ToNavigtorBack"></view>
+    <view>详细信息</view>
+  </view>
+  <view class="contain">
+    <view class="contain_title">个人照片</view>
+    <view class="oneselfImage">
+      <view class="image">
+        <image src="{{listselfInfo.imgUrl}}"></image>
+      </view>
+    </view>
+    <view class="oneselfDetail">
+      <view class="Detail_title">
+        个人信息
+      </view>
+      <view class="lists">
+        <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-mingzi"></view>
+            <view class="name">姓名</view>
+          </view>
+          <view class="list_right">{{listselfInfo.name}}</view>
+        </view>
+        <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-yuangonggonghao"></view>
+            <view class="jobNumber">工号</view>
+          </view>
+          <view class="list_right">{{listselfInfo.jobNumber}}</view>
+        </view>
+        <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-bumen"></view>
+            <view class="department">部门</view>
+          </view>
+          <view class="list_right">{{listselfInfo.department}}</view>
+        </view>
+        <!-- <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-jinggao_o"></view>
+            <view class="Violation">违规</view>
+          </view>
+          <view class="list_right">{{listselfInfo.violation}}</view>
+        </view> -->
+        <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-dianhua"></view>
+            <view class="telephone">手机号</view>
+          </view>
+          <view class="list_right">{{listselfInfo.telephone}}</view>
+        </view>
+        <!-- <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-shijian"></view>
+            <view class="time">抓拍时间</view>
+          </view>
+          <view class="list_right">{{listselfInfo.time}}</view>
+        </view> -->
+        <!-- <view class="list">
+          <view class="listLeft">
+            <view class="iconfont icon-xiangji"></view>
+            <view class="NumberCapture">抓拍次数</view>
+          </view>
+          <view class="list_right">{{listselfInfo.numberCapture}}</view>
+        </view> -->
+        <view class="pushBlock">
+          <view class="passButton button" bindtap="clickpassButton">通过</view>
+          <view class="unpassButton button" bindtap="clickunpassButton">驳回</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+

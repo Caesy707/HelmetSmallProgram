@@ -1,0 +1,311 @@
+page {
+    background: #f7f7f7;
+}
+
+.icon-dayu {
+    font-size: 40rpx;
+    margin-right: 20rpx;
+}
+
+.nav view {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.backgroundTop {
+    background-color: rgb(80, 112, 235);
+    width: 100%;
+    height: 418rpx;
+    padding-top: 93rpx;
+    box-sizing: border-box;
+}
+
+.backgroundTopTitle {
+    font-size: 50rpx;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cardHeader {
+    border-radius: 10rpx;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    position: absolute;
+    top: 324rpx;
+    left: 50%;
+    margin-left: calc(-695rpx / 2);
+    width: 695rpx;
+    height: 378rpx;
+    z-index: 19;
+    padding: 40rpx;
+    box-sizing: border-box;
+}
+
+.oneImage {
+    border-width: 2rpx;
+    border-color: rgb(232, 232, 234);
+    border-style: dashed;
+    border-radius: 10rpx;
+    background-color: rgb(246, 247, 251);
+    width: 233rpx;
+    height: 308rpx;
+    position: relative;
+    display: inline-block;
+}
+
+.oneRight {
+    width: calc(695rpx - 80rpx - 248rpx);
+    height: 308rpx;
+    float: right;
+    padding-left: 31rpx;
+    box-sizing: border-box;
+}
+
+.oneRight_top {
+    font-size: 32rpx;
+    font-family: "SimHei";
+    color: rgb(0, 0, 0);
+}
+
+.oneRight_center {
+    font-size: 24rpx;
+    font-family: "SimHei";
+    color: rgb(179, 179, 179);
+    width: 343rpx;
+    height: 60rpx;
+    margin-top: 32rpx;
+    margin-bottom: 127rpx;
+}
+
+.oneRight_bottom {
+    border-radius: 10rpx;
+    background-color: rgb(80, 112, 235);
+    width: 161rpx;
+    height: 65rpx;
+    font-size: 24rpx;
+    font-family: "SimHei";
+    color: rgb(255, 255, 255);
+    line-height: 65rpx;
+    text-align: center;
+}
+
+.oneselfInformation {
+    border-radius: 10rpx;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    width: 695rpx;
+    min-height: 675rpx;
+    /* margin: 224rpx auto 58rpx auto; */
+    position: absolute;
+    top: 358rpx;
+    left: 50%;
+    transform: translateX(-347.5rpx);
+    padding: 71rpx 35rpx 35rpx 35rpx;
+    box-sizing: border-box;
+}
+
+.oneTitle {
+    width: 624rpx;
+    height: 79rpx;
+    font-size: 32rpx;
+    font-family: "SimHei";
+    color: rgb(0, 0, 0);
+    border-bottom: solid 1rpx #e1e0e4;
+    margin-bottom: 38rpx;
+    position: relative;
+}
+
+.oneInput {
+    width: 353rpx;
+    font-size: 26rpx;
+    font-family: "SimHei";
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 211rpx;
+}
+
+.sureButton {
+    border-radius: 10rpx;
+    background-color: rgb(80, 112, 235);
+    width: 161rpx;
+    height: 65rpx;
+    font-size: 24rpx;
+    font-family: "SimHei";
+    color: rgb(255, 255, 255);
+    line-height: 65rpx;
+    text-align: center;
+    margin-top: 554rpx;
+    margin-bottom: 125rpx;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.icon-xiangji {
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 50%;
+    background: #5070eb;
+    font-size: 35rpx;
+    line-height: 65rpx;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.backgroundBorder {
+    border-radius: 10rpx;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    position: absolute;
+    margin-bottom: 64rpx;
+    top: 229rpx;
+    left: 50%;
+    margin-left: -347.5rpx;
+    width: 695rpx;
+    height: 1110rpx;
+}
+
+.unpassBox {
+    width: 100%;
+    height: 163rpx;
+    position: absolute;
+    top: 253rpx;
+}
+
+.icon-butongguo {
+    font-size: 104rpx;
+    color: #e74c3c;
+    text-align: center;
+}
+
+.icon-shenhetongguo1 {
+    font-size: 104rpx;
+    color: #5070eb;
+    text-align: center;
+}
+
+.icon-shenhetongguo {
+    width: 104rpx;
+    height: 104rpx;
+    border-radius: 50%;
+    background: #5070eb;
+    font-size: 70rpx;
+    color: #fff;
+    line-height: 104rpx;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.tipFont {
+    margin-top: 29rpx;
+    font-size: 30rpx;
+    font-family: "SimHei";
+    color: rgb(121, 118, 141);
+    text-align: center;
+}
+
+.tipFonttoo {
+    font-size: 30rpx;
+    font-family: "SimHei";
+    color: rgb(121, 118, 141);
+    text-align: center;
+}
+
+.button {
+    border-radius: 10rpx;
+    background-color: rgb(80, 112, 235);
+    position: absolute;
+    bottom: 196rpx;
+    left: 50%;
+    margin-left: -115rpx;
+    color: #fff;
+    width: 230rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.oneInputlogo {
+    float: right;
+}
+
+.pickerlogo {
+    /* float: right; */
+    transform: rotate(180deg);
+    color: #a2a1a6;
+}
+
+.photoContant {
+    border-radius: 10rpx;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    position: relative;
+    width: 696rpx;
+    height: 1168rpx;
+    margin-top: 183rpx;
+    margin-bottom: 99rpx;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 45rpx;
+    padding-left: 50rpx;
+    box-sizing: border-box;
+}
+
+.photosList {
+    border-width: 2rpx;
+    border-color: rgb(232, 232, 234);
+    border-style: dashed;
+    border-radius: 10rpx;
+    background-color: rgb(246, 247, 251);
+    width: 117rpx;
+    height: 116rpx;
+    margin-right: 40rpx;
+    margin-bottom: 32rpx;
+    display: inline-block;
+    position: relative;
+}
+
+.icon-mingzi {
+    font-size: 43rpx;
+    color: #d4d6dc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20rpx;
+    margin-left: -20rpx;
+}
+
+.submitbottom {
+    border-radius: 10rpx;
+    /* background-color: #96a9f3; */
+    display: inline-block;
+    margin-top: 116rpx;
+    margin-left: 60rpx;
+    color: #fff;
+    width: 230rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.lastbottom {
+    border-radius: 10rpx;
+    background-color: #f1f2f6;
+    display: inline-block;
+    margin-top: 116rpx;
+    margin-left: 32rpx;
+    color: #5070eb;
+    width: 230rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+    text-align: center;
+    font-size: 24rpx;
+}

@@ -1,0 +1,159 @@
+<view>
+  <view class="nav" style="height:{{navheight}}px;margin-top:{{topstatus}}px">
+    <view class="iconfont icon-dayu" bindtap="ToNavigtorBack"></view>
+    <view>个人信息收集</view>
+  </view>
+  <view class="backgroundTop">
+    <view class="backgroundTopTitle" wx:if="{{firstPage}}">填写个人信息</view>
+  </view>
+  <!-- 个人信息填写页 -->
+  <view wx:if="{{firstPage}}">
+    <view class="oneselfInformation">
+      <view class="oneTitle">姓名
+        <input
+          class="oneInput"
+          type="text"
+          placeholder="请输入你的名字"
+          bindblur="getinputContent"
+          data-type="name"
+          disabled="{{isdisable? true:false}}"
+          value="{{selfInfo.name}}"
+        />
+      </view>
+      <view class="oneTitle">工号
+        <input
+          class="oneInput"
+          type="text"
+          placeholder="请输入你的工号"
+          bindblur="getinputContent"
+          data-type="jobNumber"
+          disabled="{{isdisable? true:false}}"
+          value="{{selfInfo.jobNumber}}"
+        />
+      </view>
+      <view class="oneTitle">部门
+        <input
+          class="oneInput"
+          type="text"
+          placeholder="请输入你的部门"
+          data-type="department"
+          bindblur="getinputContent"
+          disabled="true"
+          value="{{selfInfo.department}}"
+        />
+        <picker
+          mode="selector"
+          class="oneInputlogo"
+          style="color:#a2a1a6"
+          range="{{departmentList}}"
+          value="{{index}}"
+          bindchange="getPickerContent"
+          data-type="department"
+          disabled="{{isdisable? true:false}}"
+        >
+          <view class="iconfont icon-dayu pickerlogo"></view>
+        </picker>
+      </view>
+      <view class="oneTitle">手机号
+        <input
+          class="oneInput"
+          type="text"
+          placeholder="请输入你的手机号"
+          bindblur="getinputContent"
+          data-type="telephone"
+          disabled="{{isdisable? true:false}}"
+           value="{{selfInfo.telephone}}"
+        />
+      </view>
+    </view>
+    <view
+      class="sureButton"
+      wx:if="{{!isdisable}}"
+      bindtap="clickSureSubmit"
+    >
+      下一步
+    </view>
+  </view>
+  <!-- 拍摄页 -->
+  <view wx:if="{{secondPage}}">
+    <view class="cardHeader">
+      <view class="oneImage">
+        <view
+          class="iconfont icon-xiangji"
+          bindtap="clickshooting"
+          wx:if="{{!isContinuePhoto}}"
+        ></view>
+        <image
+          src="{{oneBigImage}}"
+          style="width:100%;height:100%"
+          wx:if="{{isContinuePhoto}}"
+        />
+      </view>
+      <view class="oneRight">
+        <view class="oneRight_top">
+          请上传照片
+        </view>
+        <view class="oneRight_center">
+          请在光源充足的纯色背景墙面前，正对相机镜头进行拍摄。
+        </view>
+        <view
+          class="oneRight_bottom"
+          bindtap="{{isContinuePhoto?'clickshooting':' '}}"
+          style="background:{{isContinuePhoto?'#5070eb':'#f1f1f1'}};color:{{isContinuePhoto?'#ffffff':'#c3c3c3'}}"
+        >
+          继续拍摄
+        </view>
+      </view>
+    </view>
+    <view class="photoContant">
+      <view
+        class="photosList"
+        wx:for="{{imgList}}"
+        wx:key="index"
+        wx:for-item="item"
+      >
+        <image
+          src="{{item.imgUrl}}"
+          lazy-load="false"
+          style="width:100%;height:100%;position: absolute;"
+          wx:if="{{!item.isShowLogo}}"
+        />
+        <view class="iconfont icon-mingzi" wx:if="{{item.isShowLogo}}"></view>
+      </view>
+      <view class="lastbottom" bindtap="returnLastPage">上一步</view>
+      <view class="submitbottom" style="background:{{isSubmit?'#5070eb':'#96a9f3'}}" bindtap="submitPhotoButtom">提交</view>
+    </view>
+  </view>
+  <!-- 审核不通过 -->
+  <view wx:if="{{IsCheckunPass}}">
+    <view class="backgroundBorder">
+      <view class="unpassBox">
+        <view class="iconfont icon-butongguo"></view>
+        <view class="tipFont">审核不通过！</view>
+      </view>
+      <view class="button" bindtap="ClickpreApply">重新申请</view>
+    </view>
+  </view>
+  <!-- 审核通过 -->
+  <view wx:if="{{IsCheckPass}}">
+    <view class="backgroundBorder">
+      <view class="unpassBox">
+        <view class="iconfont icon-shenhetongguo"></view>
+        <view class="tipFont">审核通过~</view>
+      </view>
+      <view class="button" bindtap="ClickcheckSubmited">查看已提交信息</view>
+    </view>
+  </view>
+  <!-- 提交成功 -->
+  <view wx:if="{{IsSubmitSuccess}}">
+    <view class="backgroundBorder">
+      <view class="unpassBox">
+        <view class="iconfont icon-shenhetongguo1"></view>
+        <view class="tipFont">提交成功！</view>
+        <view class="tipFonttoo">请耐心等待审核</view>
+      </view>
+      <view class="button" bindtap="ClickcheckSubmited">查看已提交信息</view>
+    </view>
+  </view>
+</view>
+

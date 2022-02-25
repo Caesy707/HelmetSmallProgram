@@ -1,0 +1,106 @@
+page {
+    background: #f7f7f7;
+}
+
+.icon-dayu {
+    font-size: 40rpx;
+    margin-right: 20rpx;
+}
+
+.nav view {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.contain {
+    width: 698rpx;
+    min-height: 948rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    margin: 0 auto;
+    margin-top: 63rpx;
+    padding-top: 48rpx;
+    margin-bottom: 238rpx;
+    box-sizing: border-box;
+}
+
+.contain_title {
+    width: 100%;
+    font-size: 32rpx;
+    padding: 0 42rpx;
+    margin-bottom: 30rpx;
+}
+
+.oneselfImage {
+    width: 100%;
+    height: 385rpx;
+}
+
+.oneselfImage .image {
+    width: 345rpx;
+    height: 100%;
+    margin: 0 auto;
+    background: #d87b58;
+}
+.oneselfImage image{
+    width: 100%;
+    height: 100%;
+}
+.oneselfDetail {
+    width: 100%;
+    min-height: 224rpx;
+    margin-top: 40rpx;
+}
+
+.Detail_title {
+    width: 100%;
+    font-size: 32rpx;
+    padding-left: 45rpx;
+    margin-top: 28rpx;
+    margin-bottom: 31rpx;
+    box-sizing: border-box;
+}
+
+.lists {
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    height: 48rpx;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 34rpx;
+    position: relative;
+}
+
+.list view {
+    display: inline-block;
+}
+
+.listLeft {
+    position: absolute;
+    left: 39rpx;
+}
+
+.list_right {
+    position: absolute;
+    right: 46rpx;
+    color: #6a6a6a;
+}
+
+.icon-mingzi,
+.icon-bumen,
+.icon-jinggao_o,
+.icon-yuangonggonghao,
+.icon-dianhua,
+.icon-shijian,
+.icon-xiangji {
+    margin-right: 13rpx;
+    color: #3f3f3f;
+}
+
+.pushBlock {
+    width: 100%;
+    height: 190rpx;
+}

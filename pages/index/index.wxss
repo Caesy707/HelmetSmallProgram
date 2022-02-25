@@ -1,0 +1,62 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background: #f7f7f7;
+}
+
+
+/* .nav {
+    width: 100%;
+    height: 93rpx;
+    color: #000;
+    font-size: 33rpx;
+    padding: 33rpx 28rpx;
+    box-sizing: border-box;
+} */
+
+.contain {
+    width: 632rpx;
+    height: 600rpx;
+    margin-top: 171rpx;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contain .image {
+    width: 100%;
+    height: 502rpx;
+}
+
+.contain .containTitle {
+    width: 100%;
+    color: #000;
+    font-size: 46rpx;
+    margin-top: 51rpx;
+    text-align: center;
+}
+
+.buttons {
+    width: 100%;
+    height: 171rpx;
+    margin-top: 158rpx;
+    /* margin-bottom: 139rpx; */
+}
+
+.button {
+    width: 244rpx;
+    height: 66rpx;
+    color: #fff;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 66rpx;
+    background: #5070eb;
+    border-radius: 10rpx;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28rpx;
+}

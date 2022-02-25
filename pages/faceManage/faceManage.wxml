@@ -1,0 +1,147 @@
+<view>
+  <scroll-view
+    scroll-y
+    enable-back-to-top
+      >
+    <view>
+      <view class="nav" style="height:{{navheight}}px;margin-top:{{topstatus}}px">
+    <view class="iconfont icon-dayu" bindtap="ToNavigtorBack"></view>
+    <view>人脸管理</view>
+  </view>
+  <view class="selectBox">
+    <picker
+      bindchange="bindPickerChange"
+      bindtap="tapName"
+      value="{{index}}"
+      range="{{array}}"
+      class="select"
+    >
+      <!-- <view class="selectTitle">部门:</view> -->
+      <view class="selectOpration">
+        <view class="selectleft">{{array[selectIndex]}}</view>
+        <view class="iconfont icon-xiangxiatubiao"></view>
+      </view>
+    </picker>
+    <view class="searchInput">
+      <input type="text" placeholder="搜索" />
+      <icon
+        class=""
+        type="search"
+        size="23"
+        color=""
+      >
+      </icon>
+
+    </view>
+    <view class="manageButton" bindtap="clickManageButton">
+      {{manageButton}}
+    </view>
+  </view>
+      <block
+        wx:for="{{ list }}"
+        wx:for-item="item"
+        wx:for-index="index"
+        wx:key="index"
+      >
+        <view
+          class="list {{ item.isTouchMove ? 'touch-move-active' : '' }}"
+          bindtouchstart="touchStart"
+          bindtouchmove="touchMove"
+          data-index="{{ index }}"
+        >
+
+          <view class="txt">
+            <icon
+              class="isIcon"
+              type="{{list[index].selectStatus}}"
+              size="24"
+              color="#5070ea"
+              data-index="{{index}}"
+              wx:if="{{IsShow}}"
+              bindtap="singleSelect"
+            >
+            </icon>
+
+            <view class="ImgOne">
+              <!-- <view></view> -->
+              <image src="{{list[index].imgUrl}}"></image>
+            </view>
+            <view
+              class="oneInformation"
+              bindtap="ToNavigtorDetail"
+              data-id="{{list[index].id}}"
+            >
+              <view class="name">
+                <view class="iconfont icon-mingzi"></view>
+                <view class="nametoo">
+                  {{list[index].name}}
+                </view>
+              </view>
+              <view class="department">
+                <view class="iconfont icon-bumen"></view>
+                <view class="departmenttoo">
+                  {{list[index].department}}
+                </view>
+              </view>
+              <view class="status" style="color:{{list[index].isPasslogo?'':'red'}}">
+                <view class="iconfont {{list[index].isPasslogo?'icon-zhengque':'icon-jinggao_o'}}"></view>
+                <!-- <view class="iconfont icon-jinggao_o"></view> -->
+                <view 
+                class="departmenttoo">
+                  {{list[index].status}}
+                </view>
+              </view>
+            </view>
+            <view class="time">
+              <view>
+                {{list[index].time}}
+              </view>
+            </view>
+            <view class="statusButton">
+              <view
+                class="passbutton"
+                data-index="{{index}}"
+                bindtap="clickpassButton"
+              >
+                通过
+              </view>
+              <view
+                class="rejectButton"
+                data-index="{{index}}"
+                bindtap="clickUnpassButton"
+              >
+                驳回
+              </view>
+            </view>
+          </view>
+          <view
+            class="del"
+            bindtap="delList"
+            data-index="{{ index }}"
+          > 删除
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="footer" wx:if="{{IsShow}}">
+      <view class="footerLeft" bindtap="clickAllSelect">
+        <icon
+          class="AllSuccess"
+          type="{{allSelectStatus}}"
+          size="24"
+          color="#5070ea"
+        >
+        </icon>
+        <text>全选</text>
+      </view>
+      <view class="footerRight" bindtap="clickDelete">
+        删除
+      </view>
+
+    </view>
+    <view class="nolistImg" wx:if="{{isalldetel}}">
+      <image src="https://z3.ax1x.com/2021/11/11/I0aziF.png"></image>
+    </view>
+  </scroll-view>
+</view>
+

@@ -1,0 +1,259 @@
+/* pages/list/list.wxss */
+
+
+/* 列表 */
+
+page {
+    background: #f7f7f7;
+}
+
+.icon-dayu {
+    font-size: 40rpx;
+    margin-right: 20rpx;
+}
+
+.nav view {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0rpx 3rpx 7rpx 0rpx rgba(0, 0, 0, 0.09);
+    /* width: 100%;
+    height: 100rpx; */
+    width: 698rpx;
+    height: 166rpx;
+    border-radius: 10rpx;
+    /* margin: 0 auto; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+
+/* 列表内容 */
+
+.list .txt {
+    flex-grow: 1;
+    width: 100%;
+    margin-left: -150rpx;
+    background-color: #fff;
+    padding: 23rpx 36rpx 23rpx 54rpx;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+}
+
+.ImgOne {
+    width: 125rpx;
+    height: 100%;
+    margin-left: 13rpx;
+}
+
+.ImgOne image {
+    width: 100%;
+    height: 100%;
+    background: #d87b58;
+}
+
+.oneInformation {
+    width: 362rpx;
+    height: 100%;
+    padding-left: 33rpx;
+    box-sizing: border-box;
+}
+
+.oneInformation>view {
+    width: 100%;
+    height: 26rpx;
+    font-size: 26rpx;
+    color: #3f3f3f;
+    line-height: 26rpx;
+    text-align: left;
+    margin-bottom: 14rpx;
+}
+
+.time {
+    width: 117rpx;
+    height: 100%;
+    font-size: 20rpx;
+    /* position: relative; */
+}
+
+.time view {
+    line-height: 20rpx;
+}
+
+.isIcon {
+    position: absolute;
+    top: 50%;
+    margin-top: -29rpx;
+    left: 7rpx;
+}
+
+
+/* 删除按钮 */
+
+.list .del {
+    flex-grow: 0;
+    width: 150rpx;
+    color: #fff;
+    line-height: 166rpx;
+    background-color: #fe3e2f;
+}
+
+.list .txt,
+.list .del {
+    transform: translateX(150rpx);
+    transition: all 0.4s;
+}
+
+.touch-move-active .txt,
+.touch-move-active .del {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+/* 筛选盒子 */
+
+.selectBox {
+    width: 100%;
+    height: 63rpx;
+    margin-bottom: 14rpx;
+    padding: 0 58rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.selectBox view {
+    display: inline-block;
+}
+
+.select {
+    min-width: 245rpx;
+    height: 100%;
+    font-size: 32rpx;
+    display: inline-block;
+    color: #646464;
+}
+
+.selectTitle {
+    height: 100%;
+    line-height: 63rpx;
+    margin-right: 23rpx;
+}
+
+.icon-xiangxiatubiao {
+    position: absolute;
+    bottom: -24rpx;
+    height: 100%;
+    font-size: 15rpx;
+    /* line-height: 63rpx; */
+    margin-left: 16rpx;
+    /* position: absolute;
+    top: 50%;
+    margin-top: -7.5rpx; */
+}
+
+.searchInput {
+    width: 256rpx;
+    height: 61rpx;
+    margin-left: 57rpx;
+    position: absolute;
+}
+
+.searchInput input {
+    width: 100%;
+    height: 100%;
+    border-radius: 31.17rpx;
+    background: #f0efef;
+    padding-left: 11rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+}
+
+.searchInput icon {
+    position: absolute;
+    z-index: 100;
+    top: 8rpx;
+    right: 5px;
+}
+
+.manageButton {
+    height: 63rpx;
+    line-height: 63rpx;
+    font-size: 32rpx;
+    color: #5070ea;
+    text-decoration: underline;
+    float: right;
+}
+
+.footer {
+    width: 698rpx;
+    height: 46rpx;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 200rpx;
+    padding-left: 11rpx;
+    padding-right: 32rpx;
+    box-sizing: border-box;
+    /* background: red; */
+}
+
+.footerLeft {
+    width: 110rpx;
+    height: 100%;
+    /* vertical-align: top; */
+    position: relative;
+    display: inline-block;
+}
+
+.footerLeft text {
+    font-size: 26rpx;
+    color: #9e9e9e;
+    display: inline-block;
+    position: absolute;
+    top: 6rpx;
+    right: 4rpx;
+    /* line-height: 46rpx; */
+}
+
+.footerRight {
+    height: 100%;
+    font-size: 32rpx;
+    color: #5070ea;
+    text-decoration: underline;
+    float: right;
+}
+
+.icon-mingzi,
+.icon-bumen {
+    display: inline-block;
+    margin-right: 13rpx;
+}
+
+.name,
+.department {
+    display: inline-block;
+}
+
+.nolistImg {
+    position: absolute;
+    width: 338rpx;
+    height: 463rpx;
+    top: 380rpx;
+    left: 50%;
+    margin-left: -169rpx;
+}
+
+.nolistImg image {
+    width: 100%;
+    height: 100%;
+}
