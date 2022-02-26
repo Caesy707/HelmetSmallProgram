@@ -1,9 +1,8 @@
-// import { resolve } from "path/posix";
 import request from "request.js";
 /*
  * @Author: your name
  * @Date: 2021-11-08 21:07:35
- * @LastEditTime: 2022-02-25 23:59:23
+ * @LastEditTime: 2022-02-26 23:42:51
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \安全帽检测\utils\request.js
@@ -24,6 +23,8 @@ export default ({
     newUserinfo, //新建人脸用户信息
     newFacePhoto, //新建人脸照片
     getUseAllFace, //获取所有人脸
+    faceSearch, //人脸搜索
+    selectflagfacelist, //人脸页状态筛选
 });
 
 
@@ -144,34 +145,6 @@ async function getFaceList(size, num) {
     })
 }
 
-//删除人脸信息接口
-async function deleteFaceInfo(data) {
-    var data = data
-    return new Promise((resolve, reject) => {
-        requestMethod.requestDelete(data, "/facelib").then(res => {
-            console.log(res)
-            resolve(res)
-        }).catch(err => {
-            console.log(err)
-            reject(err)
-        })
-    })
-}
-
-//审核人脸照片接口
-async function judgeFacePhoto(data) {
-    var data = data
-    return new Promise((resolve, reject) => {
-        requestMethod.requestDelete(data, "/facelib/flag").then(res => {
-            console.log(res)
-            resolve(res)
-        }).catch(err => {
-            console.log(err)
-            reject(err)
-        })
-    })
-}
-
 //新建用户信息接口
 async function newUserinfo(data) {
     var data = data
@@ -215,12 +188,65 @@ async function getUseAllFace(openid) {
         })
     })
 }
-//删除人脸管理页数据
-async function deletefaceData(id) {
+
+
+//人脸搜索接口
+async function faceSearch(keyword, pagesize, pagenum) {
     var data = {
-        id: id
+        pagenum: pagenum,
+        pagesize: pagesize,
+        keyword: keyword
     }
     return new Promise((resolve, reject) => {
+        requestMethod.requestGetToken(data, '/facelib/search').then(res => {
+            resolve(res)
+        }).catch(err => {
+            console.log(err)
+            reject(err)
+        })
+    })
+}
+//删除人脸信息接口
+async function deleteFaceInfo(data) {
+    var data = data
+    return new Promise((resolve, reject) => {
+        requestMethod.requestDelete(data, "/facelib").then(res => {
+            console.log(res)
+            resolve(res)
+        }).catch(err => {
+            console.log(err)
+            reject(err)
+        })
+    })
+}
 
+//审核人脸照片接口
+async function judgeFacePhoto(id, flag) {
+    //flag 0待审核，1审核通过，2审核不通过
+    var data = {
+        id: id,
+        flag: flag
+    }
+    return new Promise((resolve, reject) => {
+        requestMethod.requestPost(data, "/facelib/flag").then(res => {
+            console.log(res)
+            resolve(res)
+        }).catch(err => {
+            console.log(err)
+            reject(err)
+        })
+    })
+}
+
+//人脸页状态筛选
+async function selectflagfacelist(data) {
+    return new Promise((resolve, reject) => {
+        requestMethod.requestGetToken(data, "/facelib/flag").then(res => {
+            console.log(res)
+            resolve(res)
+        }).catch(err => {
+            console.log(err)
+            reject(err)
+        })
     })
 }

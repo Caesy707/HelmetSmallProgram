@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-09 11:17:54
- * @LastEditTime: 2022-02-25 22:14:16
+ * @LastEditTime: 2022-02-26 22:26:34
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \安全帽检测\pages\faceManageDetail\faceManageDetail.js
@@ -40,65 +40,20 @@ Page({
         console.log(options.id)
         var id = options.id
         var list = wx.getStorageSync('faceManageList')
-        console.log(list)
         list.forEach((value, index) => {
-                console.log("value", value.id)
-                console.log("option", options.id)
                 if (options.id == value.id) {
                     console.log(value)
                     this.setData({
                         listselfInfo: value
                     })
-                    console.log(this.data.listselfInfo)
                 }
             })
             //拿到用户id，发起请求个人详情的接口
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
     ToNavigtorBack() {
+        var pagenum = 1
         wx.redirectTo({
-            url: '/pages/faceManage/faceManage'
+            url: '/pages/faceManage/faceManage?pagenum=' + pagenum
         })
     },
     clickpassButton() {

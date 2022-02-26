@@ -23,7 +23,7 @@
       </view>
     </picker>
     <view class="searchInput">
-      <input type="text" placeholder="搜索" />
+      <input type="text" placeholder="搜索" bindconfirm="confirmSearch" />
       <icon
         class=""
         type="search"
@@ -102,6 +102,7 @@
                 class="passbutton"
                 data-index="{{index}}"
                 bindtap="clickpassButton"
+                data-id="{{list[index].id}}"
               >
                 通过
               </view>
@@ -109,6 +110,7 @@
                 class="rejectButton"
                 data-index="{{index}}"
                 bindtap="clickUnpassButton"
+                data-id="{{list[index].id}}"
               >
                 驳回
               </view>
@@ -118,6 +120,7 @@
             class="del"
             bindtap="delList"
             data-index="{{ index }}"
+            data-id="{{list[index].id}}"
           > 删除
           </view>
         </view>

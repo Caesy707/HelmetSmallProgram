@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-03 15:19:00
- * @LastEditTime: 2022-02-25 23:53:37
+ * @LastEditTime: 2022-02-26 23:44:17
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \安全帽检测\pages\list\list.js
@@ -24,105 +24,15 @@ Page({
         manageButton: "管理", //管理按钮
         isShow: false,
         isPasslogo: false, //通过图标
-        array: ['全部状态', '已通过', '未审核', '已驳回'],
+        array: ['全部状态', '未审核', '已通过', '已驳回'],
         isalldetel: false,
         newlist: [],
-        list: [{
-                id: "0001",
-                name: "吕樵润 ",
-                department: "工程技术部",
-                jobNumber: "20125022041",
-                time: "2021-11-17",
-                telephone: "13027920034",
-                status: "待审批",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPEZV.jpg"
-            },
-            {
-                id: "0002",
-                name: "黄翠荣",
-                department: "财务部",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审批",
-                time: "2021-11-15",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPVaT.jpg"
-            }, {
-                id: "0003",
-                name: "吴晓明",
-                department: "管理部",
-                time: "2021-11-14",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审核",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPkq0.jpg"
-            }, {
-                id: "0004",
-                name: "刘孝炜",
-                department: "物资设备部",
-                time: "2021-11-09",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审核",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/17/I5Bsot.jpg"
-            }, {
-                id: "0005",
-                name: "郑楚伟",
-                department: "综合办公室",
-                time: "2021-11-02",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审批",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPiMn.jpg"
-            }, {
-                id: "0003",
-                name: "吴晓明",
-                department: "管理部",
-                time: "2021-11-14",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审核",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPkq0.jpg"
-            }, {
-                id: "0004",
-                name: "刘孝炜",
-                department: "物资设备部",
-                time: "2021-11-09",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审核",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/17/I5Bsot.jpg"
-            }, {
-                id: "0005",
-                name: "郑楚伟",
-                department: "综合办公室",
-                time: "2021-11-02",
-                jobNumber: "20125022041",
-                telephone: "13027920034",
-                status: "待审批",
-                selectStatus: "circle",
-                isPasslogo: false, //通过图标
-                imgUrl: "https://z3.ax1x.com/2021/11/18/IoPiMn.jpg"
-            },
-        ],
+        list: [],
         allSelectStatus: "circle",
         scrollHeight: 0, // scroll-view高度
         startX: 0, // 开始X坐标
         startY: 0, // 开始Y坐标
-        currentfreshMode: 'all'
+        currentfreshMode: 'all',
     },
     //监听页面触底，然后发送请求
     onReachBottom: function() {
@@ -195,8 +105,8 @@ Page({
     // 删除
     delList: function(e) {
         let that = this,
-            index = e.currentTarget.dataset.index; // 当前下标
-        　　　　　 // 切割当前下标元素，更新数据
+            index = e.currentTarget.dataset.index; // 当前下标　
+        // 切割当前下标元素，更新数据
         that.data.list.splice(index, 1);
         that.setData({
             list: that.data.list
@@ -219,7 +129,7 @@ Page({
                 "id": id
             }
             //删除用户的接口
-        request.deleteVioInfo(data).then(res => {
+        request.deleteFaceInfo(data).then(res => {
             console.log(res)
         }).catch(err => {
             console.log(err)
@@ -230,6 +140,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        console.log('options', options)
+        if (options.pagenum) {
+            pageNum = options.pagenum
+        }
         let navheight = app.globalData.realheight
         let navtop = app.globalData.topstatus
         this.setData({
@@ -243,7 +157,6 @@ Page({
                 //操作数组
             let returnlist = this.oprationArr(newlist) //操作json数据
             this.setData({
-                // requestList: returnlist
                 list: returnlist
             })
             wx.setStorageSync('faceManageList', this.data.list)
@@ -263,7 +176,7 @@ Page({
         this.setData({
             selectIndex: e.detail.value
         })
-        let department = this.data.selectIndex
+        let flag = this.data.selectIndex - 1
         if (this.data.selectIndex == 0) {
             selectPagenum = 1;
             pageNum = 1 //还原初始页面
@@ -291,9 +204,9 @@ Page({
             let data = {
                 "pagenum": selectPagenum,
                 "pagesize": pageSize,
-                "did": department
+                "flag": flag
             }
-            request.getVioSelectInfo(data).then(res => {
+            request.selectflagfacelist(data).then(res => {
                 console.log(res)
                 let newlist = res.data.data.list
                     //操作数组
@@ -379,46 +292,84 @@ Page({
     },
     //点击删除，还没接接口
     clickDelete: function(e) {
+        //1.拿到删除的id数组
+        //2.循环请求接口删除数据
         var that = this
-        var shouldDelete = [] //储存需要删除的index
+        var shouldDelete = [] //储存需要删除的index和id
         for (var i = 0; i < this.data.list.length; i++) {
             if (this.data.list[i].selectStatus == "success") {
-                shouldDelete.push(i)
-                console.log(shouldDelete)
+                let id = this.data.list[i].id
+                let newArray = {
+                    index: i,
+                    id: id
+                }
+                shouldDelete.push(newArray)
             }
         }
-        // console.log(shouldDelete)
-        for (var i = this.data.list.length - 1; i >= 0; i--) {
-            if (shouldDelete.indexOf(i) != -1) {
-                that.data.list.splice(i, 1);
-                that.setData({
-                    list: that.data.list
-                })
+        console.log('shouldDelete', shouldDelete) //拿到所有要删除的id
+        for (var j = shouldDelete.length - 1; j >= 0; j--) {
+            var id = shouldDelete[j].id
+            var index = shouldDelete[j].index
+            let data = {
+                id: id
             }
+            request.deleteFaceInfo(data).then(res => {
+                if (res.data.code == 20000) {
+                    that.data.list.splice(index, 1) //根据index删除
+                    that.setData({
+                        list: that.data.list
+                    })
+                    wx.showToast({
+                        title: '已删除',
+                        icon: 'success',
+                        duration: 1500
+                    })
+                }
+            })
         }
         this.setData({
-            allSelectStatus: "circle"
-        })
-        wx.showToast({
-            title: '已删除',
-            icon: 'success',
-            duration: 1500
-        })
+                allSelectStatus: "circle"
+            })
+            //控制背景图片
         if (this.data.list.length == 0) {
             this.setData({
                 isalldetel: true,
                 IsShow: false
             })
         }
-        // shouldDelete.forEach((item, index) => {
-
-        //     console.log("item", item)
-        //     that.data.list.splice(item, 1);
-        //     that.setData({
-        //         list: that.data.list
-        //     })
-        //     console.log(index)
-        // })
+    },
+    //搜索接口
+    confirmSearch(e) {
+        var keyword = e.detail.value
+        this.setData({
+            currentfreshMode: 'search'
+        })
+        console.log("点击了回车", e.detail)
+        request.faceSearch(keyword, pageSize, pageNum).then(res => {
+            if (res.data.code == 20000) {
+                if (res.data.data.list.length == 0) {
+                    console.log("无该人信息")
+                    wx.showToast({
+                        title: "无该人信息",
+                        icon: "error",
+                        duration: 1500
+                    })
+                    console.log("requestList", this.data.requestList)
+                } else {
+                    console.log("res", res.data.data.list)
+                    console.log(this.oprationArr(res.data.data.list))
+                }
+            } else {
+                console.log("无该人信息")
+                wx.showToast({
+                    title: "无该人信息",
+                    icon: "error",
+                    duration: 1500
+                })
+            }
+        }).catch(err => {
+            console.log(err)
+        })
     },
     //跳转页面
     ToNavigtorBack() {
@@ -439,30 +390,44 @@ Page({
     clickpassButton(e) {
         console.log(e.currentTarget.dataset.index)
         var i = e.currentTarget.dataset.index
+        var id = e.currentTarget.dataset.id
             //发送通过请求
-        wx.showToast({
-            title: '已通过',
-            icon: 'success',
-            duration: 1500
-        })
-        this.setData({
-            ["list[" + i + '].status']: "已通过",
-            ["list[" + i + '].isPasslogo']: true
+        let flag = 1 //确定审核通过状态
+        request.judgeFacePhoto(id, flag).then(res => {
+            console.log(res)
+            if (res.data.code == 20000) {
+                wx.showToast({
+                    title: '已通过',
+                    icon: 'success',
+                    duration: 1500
+                })
+                this.setData({
+                    ["list[" + i + '].status']: "已通过",
+                    ["list[" + i + '].isPasslogo']: true
+                })
+            }
         })
     },
     //点击驳回,还没有接接口
     clickUnpassButton(e) {
         console.log(e.currentTarget.dataset.index)
         var i = e.currentTarget.dataset.index
+        var id = e.currentTarget.dataset.id
+        let flag = 2 //确定审核不通过状态
             //发送驳回请求
-        wx.showToast({
-            title: '已驳回',
-            icon: 'error',
-            duration: 1500
-        })
-        this.setData({
-            ["list[" + i + '].status']: "已驳回",
-            ["list[" + i + '].isPasslogo']: false
+        request.judgeFacePhoto(id, flag).then(res => {
+            console.log(res)
+            if (res.data.code == 20000) {
+                wx.showToast({
+                    title: '已驳回',
+                    icon: 'error',
+                    duration: 1500
+                })
+                this.setData({
+                    ["list[" + i + '].status']: "已驳回",
+                    ["list[" + i + '].isPasslogo']: false
+                })
+            }
         })
     },
     //util
@@ -569,7 +534,7 @@ Page({
     //对列表数组json
     oprationArr(list) {
         var newList = []
-        var commonImgUrl = "https://dachuang.bitaxes.com/" //图片url拼接
+        var commonImgUrl = "https://dachuang.bitaxes.com" //图片url拼接
         console.log("请求成功", list)
         list.forEach((value, index) => {
             let newPrase = {
@@ -585,12 +550,13 @@ Page({
                 imgUrl: "https://z3.ax1x.com/2021/11/18/IoPEZV.jpg"
             }
             newPrase.id = value.id
-            newPrase.name = 'null'
-            newPrase.department = 'DC'
-            newPrase.jobNumber = 'null'
+            newPrase.name = value.name
+            newPrase.department = this.returnDepartment(value.groupId)
+            newPrase.jobNumber = value.workId
             newPrase.status = this.returnStatus(value.falg)
+            newPrase.isPasslogo = this.returnflaglogo(value.falg)
             newPrase.time = this.spliceTime(value.createTime)
-            newPrase.telephone = 'null'
+            newPrase.telephone = value.telphone
                 // newPrase.imgUrl = commonImgUrl + value.imgUrl //需要重新拼接
             newList.push(newPrase)
         })
@@ -624,11 +590,15 @@ Page({
             case "6":
                 department = "综合办公室";
                 break;
+            default:
+                department = "null"
+                break;
         }
         return department
     },
     //根据falg转化状态
     returnStatus(falg) {
+        console.log(falg)
         let status
         switch (falg) {
             case 0:
@@ -639,10 +609,30 @@ Page({
                 break;
             case 2:
                 status = "已驳回"
+                break;
             default:
                 status = "待审核"
                 break;
         }
         return status
+    },
+    //根据falg转化logo
+    returnflaglogo(falg) {
+        let islogo
+        switch (falg) {
+            case 0:
+                islogo = false
+                break;
+            case 1:
+                islogo = true
+                break;
+            case 2:
+                islogo = false
+                break;
+            default:
+                islogo = false
+                break;
+        }
+        return islogo
     }
 })

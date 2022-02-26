@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-03 15:19:00
- * @LastEditTime: 2022-02-25 23:38:30
+ * @LastEditTime: 2022-02-26 22:33:29
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \安全帽检测\pages\list\list.js
@@ -12,7 +12,6 @@ var pageSize = 10
 var pageNum = 1
 var searchPagenum = 1
 var selectPagenum = 1
-    // var currentfreshMode = "" //all|select|search用户列表刷新模式
 var keyword
 Page({
     /**
@@ -125,6 +124,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        console.log('options', options)
+        if (options.pagenum) {
+            pageNum = options.pagenum
+        }
         let navheight = app.globalData.realheight
         let navtop = app.globalData.topstatus
         this.setData({
